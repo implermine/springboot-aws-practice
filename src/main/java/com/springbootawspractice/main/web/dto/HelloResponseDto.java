@@ -1,4 +1,4 @@
-package com.springbootawspractice.springbootawspractice.web.dto;
+package com.springbootawspractice.main.web.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

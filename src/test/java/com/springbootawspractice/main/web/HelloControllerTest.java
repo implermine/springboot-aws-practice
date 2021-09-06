@@ -1,4 +1,4 @@
-package com.springbootawspractice.springbootawspractice.web;
+package com.springbootawspractice.main.web;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;

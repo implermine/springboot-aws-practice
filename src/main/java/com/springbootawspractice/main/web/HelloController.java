@@ -1,6 +1,6 @@
-package com.springbootawspractice.springbootawspractice.web;
+package com.springbootawspractice.main.web;
 
-import com.springbootawspractice.springbootawspractice.web.dto.HelloResponseDto;
+import com.springbootawspractice.main.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

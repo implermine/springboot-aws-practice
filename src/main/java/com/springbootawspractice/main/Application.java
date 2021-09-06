@@ -1,13 +1,13 @@
-package com.springbootawspractice.springbootawspractice;
+package com.springbootawspractice.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootAwsPracticeApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootAwsPracticeApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
