@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -62,6 +63,7 @@ class HelloControllerTest {
         JSONObject resJson = new JSONObject(response.getContentAsString());
 
         //then
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
         assertThat(resJson.getString("name")).isEqualTo(name);
         assertThat(resJson.getInt("amount")).isEqualTo(amount);
     }
