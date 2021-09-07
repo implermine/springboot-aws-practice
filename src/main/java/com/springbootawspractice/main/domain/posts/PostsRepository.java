@@ -1,4 +1,4 @@
-package com.springbootawspractice.main.domain;
+package com.springbootawspractice.main.domain.posts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

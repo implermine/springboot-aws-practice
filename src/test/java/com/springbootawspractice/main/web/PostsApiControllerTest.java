@@ -1,7 +1,7 @@
 package com.springbootawspractice.main.web;
 
-import com.springbootawspractice.main.domain.Posts;
-import com.springbootawspractice.main.domain.PostsRepository;
+import com.springbootawspractice.main.domain.posts.Posts;
+import com.springbootawspractice.main.domain.posts.PostsRepository;
 import com.springbootawspractice.main.web.dto.PostsSaveRequestDto;
 import com.springbootawspractice.main.web.dto.PostsUpdateRequestDto;
 import org.junit.jupiter.api.AfterEach;
