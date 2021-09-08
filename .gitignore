@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+#oauth파일 해제
+application-oauth.properties
 
 ### STS ###
 .apt_generated
