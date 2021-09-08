@@ -1,12 +1,16 @@
 package com.springbootawspractice.main.web;
 
+import com.springbootawspractice.main.config.auth.SecurityConfig;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -16,13 +20,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers = HelloController.class)
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        }
+)
 class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
+    @WithMockUser(roles = "USER")
     public void hello가_리턴된다() throws Exception {
 
         String hello = "hello";
@@ -34,6 +43,7 @@ class HelloControllerTest {
     }
 
     @Test
+    @WithMockUser(roles = "USER")
     public void helloDto가_리턴된다() throws Exception { // success 테스트도 하고... fail 테스트도 해야하는데..
         String name = "hello";
         int amount = 1000;
@@ -49,6 +59,7 @@ class HelloControllerTest {
 
     //enh: mvc.perform 나누기, given,when,then 나누기, 노션의 Inside vs Server-Side 참고
     @Test
+    @WithMockUser(roles = "USER")
     public void helloDto가_리턴된다_V2() throws Exception{
 
         //given
