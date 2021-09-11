@@ -37,7 +37,20 @@ deploy:
     acl: private
     local_dir: deploy
 
-#script: "./gradlew clean build" # Travis-CI Web-server에서 build를 수행하네
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: springboot-aws-practice-build # S3 버킷
+    key: springboot-aws-practice.zip # 빌드 파일을 압축해서 전달 -> before_deploy에서 zip파일로 만든 파일을 명시 (s3에 올라간 파일)
+    # s3에서 가져오는거임 key는
+    bundle_type: zip # 압축 확장자
+    application: springboot-aws-practice # 웹 콘솔에서 등록한 CodeDeploy 애클리케이션, not group
+    deployment_group: springboot-aws-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹, not application, inside-application
+    region: ap-northeast-2
+    wait-until-deployed: true
+
+
+#script: "./gradlew clean build" # Travis-CI Web-server에서 build를 수행하네 # script로 수행 할 필요 없음.
 
 # CI 실행 완료 시 메일로 알람 - doesn't need
 #notifications:
