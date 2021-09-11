@@ -40,7 +40,6 @@ deploy:
     region: ap-northeast-2
     wait_until_deployed: true # 해당 옵션이 없다면 s3에서 제대로 된 빌드 파일을 가져오지 못한다.
 
-
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
