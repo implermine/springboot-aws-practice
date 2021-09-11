@@ -13,11 +13,6 @@ cache:
 #    - '$HOME/.m2/repository' #필요없음 maven 관련해서 필요한 캐싱임.
 
 
-# gradlew의 권한을 Travis-Ci 웹서버가 갖지 못하는 문제를 해결하기 위한 스크립트
-before_script:
-  - chmod +x ./gradlew
-
-script: "./gradlew clean build"
 
 # CI 실행 완료 시 메일로 알람
 notifications:
