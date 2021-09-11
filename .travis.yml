@@ -28,15 +28,6 @@ before_deploy:
 
 #deploy 란, travis 에서 s3로 보내는것 또한 포함이다.
 deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: springboot-aws-practice-build # 버킷이름은 고유하므로 해당 idf로 s3 bucket을 찾는다.
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: private
-    local_dir: deploy
-
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
@@ -47,7 +38,18 @@ deploy:
     application: springboot-aws-practice # 웹 콘솔에서 등록한 CodeDeploy 애클리케이션, not group
     deployment_group: springboot-aws-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹, not application, inside-application
     region: ap-northeast-2
-    wait-until-deployed: true
+    wait-until-deployed: true # 해당 옵션이 없다면 s3에서 제대로 된 빌드 파일을 가져오지 못한다.
+
+
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: springboot-aws-practice-build # 버킷이름은 고유하므로 해당 idf로 s3 bucket을 찾는다.
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+
 
 
 #script: "./gradlew clean build" # Travis-CI Web-server에서 build를 수행하네 # script로 수행 할 필요 없음.
