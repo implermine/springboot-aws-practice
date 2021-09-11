@@ -16,7 +16,7 @@ before_install:
   - chmod +x gradlew
 
 install:
-  -./gradlew clean build
+  - ./gradlew clean build
 
 # travis-ci webserver package structure lookup
 # /home/travis/build/BlossomWhale/springboot-aws-practice/settings.gradle
