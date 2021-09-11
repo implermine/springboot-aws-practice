@@ -15,7 +15,7 @@ cache:
 before_install:
   - chmod +x gradlew
 
-script: "pwd"
+script: "find $(pwd)"
 
 # CI 실행 완료 시 메일로 알람
 notifications:
