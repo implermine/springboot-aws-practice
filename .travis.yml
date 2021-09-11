@@ -22,7 +22,7 @@ install:
 # /home/travis/build/BlossomWhale/springboot-aws-practice/settings.gradle
 before_deploy:
   - zip -r springboot-aws-practice *
-  - mkdir deploy # -p 필요없음
+  - mkdir -p deploy # -p 필요없음 x 필요함, 멱등성으로 해당 폴더를 매번 만들 수는 없다. 이미 존재한다면 에러
   - mv springboot-aws-practice.zip deploy/springboot-aws-practice.zip
 
 
