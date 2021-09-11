@@ -38,7 +38,7 @@ deploy:
     application: springboot-aws-practice # 웹 콘솔에서 등록한 CodeDeploy 애클리케이션, not group
     deployment_group: springboot-aws-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹, not application, inside-application
     region: ap-northeast-2
-    wait_until_deployed: true # 해당 옵션이 없다면 s3에서 제대로 된 빌드 파일을 가져오지 못한다.
+#    wait_until_deployed: true # 해당 옵션이 없다면 s3에서 제대로 된 빌드 파일을 가져오지 못한다.
 
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
