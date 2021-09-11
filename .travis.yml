@@ -18,7 +18,7 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r springboot-aws-practice
+  - zip -r springboot-aws-practice *
   - mkdir -p deploy
   - mv springboot-aws-practice.zip deploy/springboot-aws-practice.zip
 
