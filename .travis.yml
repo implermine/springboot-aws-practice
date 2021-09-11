@@ -12,7 +12,8 @@ cache:
     - '$HOME/.gradle'
 #    - '$HOME/.m2/repository' #필요없음 maven 관련해서 필요한 캐싱임.
 
-
+before_install:
+  - chmod +x gradlew
 
 # CI 실행 완료 시 메일로 알람
 notifications:
