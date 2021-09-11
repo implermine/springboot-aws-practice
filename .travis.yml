@@ -15,6 +15,9 @@ cache:
 before_install:
   - chmod +x gradlew
 
+install:
+  -./gradlew clean build
+
 # travis-ci webserver package structure lookup
 # /home/travis/build/BlossomWhale/springboot-aws-practice/settings.gradle
 before_deploy:
@@ -34,7 +37,7 @@ deploy:
     acl: private
     local_dir: deploy
 
-script: "./gradlew clean build" # Travis-CI Web-server에서 build를 수행하네
+#script: "./gradlew clean build" # Travis-CI Web-server에서 build를 수행하네
 
 # CI 실행 완료 시 메일로 알람 - doesn't need
 #notifications:
