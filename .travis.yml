@@ -51,7 +51,6 @@ deploy:
     local_dir: deploy
 #    wait_until_deployed: true
 
-
 #script: "./gradlew clean build" # Travis-CI Web-server에서 build를 수행하네 # script로 수행 할 필요 없음.
 
 # CI 실행 완료 시 메일로 알람 - doesn't need
