@@ -21,9 +21,13 @@ install:
 # travis-ci webserver package structure lookup
 # /home/travis/build/BlossomWhale/springboot-aws-practice/settings.gradle
 before_deploy:
-  - zip -r springboot-aws-practice *
-  - mkdir -p deploy # -p 필요없음 x 필요함, 멱등성으로 해당 폴더를 매번 만들 수는 없다. 이미 존재한다면 에러
-  - mv springboot-aws-practice.zip deploy/springboot-aws-practice.zip
+  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-dploy * # before-deploy로 이동 후 전체 압축
+  - cd ../ && mkdir -p deploy # 상위 디렉토리로 이동 후 deploy 디렉토리 생성
+  - mv before-deploy/before-deploy.zip deploy/springboot-aws-practice.zip # deploy로 zip 파일 이동
 
 
 #deploy 란, travis 에서 s3로 보내는것 또한 포함이다.
