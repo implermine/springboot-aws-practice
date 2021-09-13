@@ -20,4 +20,8 @@ jobs:
         if: ${{'DEP' == 'del'}}
         run: echo "repo"
         shell: bash
-  
+        
+      - name: Test for secret env else
+        if: ${{'DEP' != 'del'}}
+        run: echo "env"
+        shell: bash
