@@ -51,4 +51,3 @@ jobs:
 
       - name: Code Deploy
         run: aws deploy create-deployment --application-name springboot-aws-practice --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name springboot-aws-practice-group --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
-      
