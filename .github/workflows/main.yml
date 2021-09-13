@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - dev-githubAction
-  workflow_dispatch:
 
 env:
   S3_BUCKET_NAME: springboot-aws-practice-s3
