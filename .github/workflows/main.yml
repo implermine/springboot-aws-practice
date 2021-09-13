@@ -3,6 +3,9 @@
 name: file(.jar) upload to S3 and trigger CodeDeploy to deploy
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 env:
