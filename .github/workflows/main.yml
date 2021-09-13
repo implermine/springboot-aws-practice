@@ -17,7 +17,7 @@ jobs:
     
     steps:
       - name: Test for secret env
-        if: ${{ env.key1 }} == 'del'
+        if: ${{ env.key1 }} == "del"
         run: echo "repo"
         shell: bash
   
