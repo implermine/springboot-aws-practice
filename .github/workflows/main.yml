@@ -11,11 +11,13 @@ env:
 
 jobs:
   build:
+    env:
+      key1: ${{ secrets.AWS_ACCESS_KEY_ID }}
     runs-on: ubuntu-latest
     
     steps:
       - name: Test for secret env
-        if: ${{ secrets.AWS_ACCESS_KEY_ID }} == 'dep'
+        if: ${{ env.key1 }} == 'dep'
         run: echo "repo"
         shell: bash
   
