@@ -12,7 +12,7 @@ env:
 jobs:
   build:
     env:
-      key1: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      key1: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     runs-on: ubuntu-latest
     
     steps:
