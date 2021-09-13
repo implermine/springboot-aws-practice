@@ -15,7 +15,7 @@ jobs:
     
     steps:
       - name: Test for secret env
-      - if: ${{ secrets.AWS_ACCESS_KEY_ID  }} == 'dep'
+        if: ${{ secrets.AWS_ACCESS_KEY_ID  }} == 'dep'
         run: echo "repo"
         shell: bash
   
