@@ -12,16 +12,26 @@ env:
 jobs:
   build:
     env:
-      key1: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      key1: ${{ secrets.AWS_ACCESS_KEY_ID }}
     runs-on: ubuntu-latest
     
     steps:
-      - name: Test for secret env
+      - name: Test for IF
         if: ${{'DEP' == 'del'}}
-        run: echo "repo"
+        run: echo "if"
         shell: bash
         
-      - name: Test for secret env else
+      - name: Test for ELSE
         if: ${{'DEP' != 'del'}}
+        run: echo "else"
+        shell: bash
+
+      - name: Test for secret env IF
+        if: ${{env.key1 == 'dep'}}
+        run: echo "repo"
+        shell: bash
+      
+      - name: Test for secret env ELSE
+        if: ${{env.key1 != 'dep'}}
         run: echo "env"
         shell: bash
